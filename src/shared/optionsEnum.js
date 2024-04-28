@@ -1,15 +1,15 @@
-export const Votes = {
+export const Options = {
     good: 'good',
     neutral: 'neutral',
     bad: 'bad',
 };
 
-const VoteName = {
+const OptionsName = {
     good: 'Good',
     neutral: 'Neutral',
     bad: 'Bad',
 }
 
-export function voteName(vote) {
-    return VoteName[vote];
+export function getOptionName(option) {
+    return OptionsName[option];
 }
