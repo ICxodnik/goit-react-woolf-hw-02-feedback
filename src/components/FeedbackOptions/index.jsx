@@ -8,7 +8,7 @@ export default class FeedbackOptions extends Component {
     for (const vote in this.props.options) {
       content.push(
         <button key={vote} onClick={() => this.props.addVote(vote)}>
-          {getOptionName(vote)}
+          {this.props.options[vote]}
         </button>
       );
     }
