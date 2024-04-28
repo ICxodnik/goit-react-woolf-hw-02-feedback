@@ -3,9 +3,10 @@ import React, { Component } from 'react';
 import Statistic from 'components/Statistic';
 import FeedbackOptions from 'components/FeedbackOptions';
 import PropTypes from 'prop-types';
+import { Votes } from 'shared/enum';
 
 export default class Feedback extends Component {
-  static propTypes = { second: PropTypes.string.isRequired };
+  // static propTypes = { second: PropTypes.string.isRequired };
 
   state = {
     good: 0,
@@ -17,7 +18,7 @@ export default class Feedback extends Component {
     return {
       ...this.state,
       totalCount: this.getTotalCount(this.state),
-      totalPercent: this.state.good / this.getTotalCount(this.state),
+      totalPercent: (this.state.good / this.getTotalCount(this.state)) * 100,
     };
   }
 
@@ -25,11 +26,17 @@ export default class Feedback extends Component {
     return data.good + data.neutral + data.bad;
   };
 
+  addVote = vote => {
+    this.setState(prevState => {
+      return { [vote]: prevState[vote] + 1 };
+    });
+  };
+
   render() {
     return (
       <div className="feedback">
         <Statistic data={this.getStatisticData()} />
-        <FeedbackOptions />
+        <FeedbackOptions addVote={this.addVote} />
       </div>
     );
   }
