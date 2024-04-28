@@ -1,14 +1,13 @@
 import css from './index.module.css';
 import React, { Component } from 'react';
+import { Notification } from 'components/Notification';
 
 export default class Statistic extends Component {
   render() {
     if (this.props.data.totalCount === 0) {
       return (
         <div className="statistic">
-          <div className="statisticError">
-            <p>No feedback given</p>
-          </div>
+          <Notification level="info" message="There is no feedback" />
         </div>
       );
     }

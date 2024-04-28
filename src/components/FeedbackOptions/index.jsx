@@ -1,6 +1,5 @@
 import css from './index.module.css';
 import React, { Component } from 'react';
-import { getOptionName } from 'shared/optionsEnum';
 
 export default class FeedbackOptions extends Component {
   getOptions() {

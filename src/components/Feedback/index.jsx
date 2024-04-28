@@ -2,11 +2,10 @@ import css from './index.module.css';
 import React, { Component } from 'react';
 import Statistic from 'components/Statistic';
 import FeedbackOptions from 'components/FeedbackOptions';
+import Section from 'components/Section';
 import { Options } from 'shared/optionsEnum';
 
 export default class Feedback extends Component {
-  // static propTypes = { second: PropTypes.string.isRequired };
-
   state = {
     good: 0,
     neutral: 0,
@@ -38,8 +37,12 @@ export default class Feedback extends Component {
   render() {
     return (
       <div className="feedback">
-        <Statistic data={this.getStatisticData()} />
-        <FeedbackOptions options={Options} addVote={this.addVote} />
+        <Section title="Please leave feedback">
+          <FeedbackOptions options={Options} addVote={this.addVote} />
+        </Section>
+        <Section title="Statistics">
+          <Statistic data={this.getStatisticData()} />
+        </Section>
       </div>
     );
   }
