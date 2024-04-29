@@ -1,0 +1,13 @@
+.feedbackOptions {
+    display: flex;
+    gap: 10px;
+    justify-content: space-between;
+}
+
+.button {
+    width: 110px;
+    height: 40px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}

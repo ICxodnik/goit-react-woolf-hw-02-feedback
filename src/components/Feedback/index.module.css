@@ -1,0 +1,11 @@
+.feedback {
+    display: flex;
+    flex-direction: column;
+    gap: 35px;
+    width: 350px;
+    box-shadow: var(--box-shadow);
+    background-color: var(--background-color);
+    margin: auto;
+    padding: 30px;
+    margin-top: 150px;
+}

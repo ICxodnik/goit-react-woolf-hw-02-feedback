@@ -6,7 +6,7 @@ export default class FeedbackOptions extends Component {
     let content = [];
     for (const vote in this.props.options) {
       content.push(
-        <button key={vote} onClick={() => this.props.addVote(vote)}>
+        <button className={css.button} key={vote} onClick={() => this.props.addVote(vote)}>
           {this.props.options[vote]}
         </button>
       );
@@ -15,6 +15,6 @@ export default class FeedbackOptions extends Component {
   }
 
   render() {
-    return <div className="feedbackOptions">{this.getOptions()}</div>;
+    return <div className={css.feedbackOptions}>{this.getOptions()}</div>;
   }
 }

@@ -36,7 +36,7 @@ export default class Feedback extends Component {
 
   render() {
     return (
-      <div className="feedback">
+      <div className={css.feedback}>
         <Section title="Please leave feedback">
           <FeedbackOptions options={Options} addVote={this.addVote} />
         </Section>
