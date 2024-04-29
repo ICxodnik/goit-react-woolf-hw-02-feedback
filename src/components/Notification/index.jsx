@@ -13,9 +13,9 @@ export class Notification extends Component {
 
   render() {
     return {
-      info: <div className="info">{this.props.message}</div>,
-      warning: <div className="warning">{this.props.message}</div>,
-      error: <div className="error">{this.props.message}</div>,
+      info: <div className={css.info}>{this.props.message}</div>,
+      warning: <div className={css.warning}>{this.props.message}</div>,
+      error: <div className={css.error}>{this.props.message}</div>,
     }[this.props.level];
   }
 }
