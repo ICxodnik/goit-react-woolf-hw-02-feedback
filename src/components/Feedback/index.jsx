@@ -4,6 +4,7 @@ import Statistic from 'components/Statistic';
 import FeedbackOptions from 'components/FeedbackOptions';
 import Section from 'components/Section';
 import { Options } from 'shared/optionsEnum';
+import { Notification } from 'components/Notification';
 
 export default class Feedback extends Component {
   state = {
@@ -35,14 +36,21 @@ export default class Feedback extends Component {
   };
 
   render() {
+    const showStatistic = this.props.data.totalCount === 0;
+
     return (
       <div className={css.feedback}>
         <Section title="Please leave feedback">
           <FeedbackOptions options={Options} addVote={this.addVote} />
         </Section>
+        showStatistic ?
         <Section title="Statistics">
           <Statistic data={this.getStatisticData()} />
         </Section>
+        :
+        <div className="statistic">
+          <Notification level="info" message="There is no feedback" />
+        </div>
       </div>
     );
   }
