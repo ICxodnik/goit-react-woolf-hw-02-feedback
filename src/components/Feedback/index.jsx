@@ -36,7 +36,7 @@ export default class Feedback extends Component {
   };
 
   render() {
-    const showStatistic = this.props.data.totalCount === 0;
+    const showStatistic = this.getTotalCount(this.state);
 
     return (
       <div className={css.feedback}>
