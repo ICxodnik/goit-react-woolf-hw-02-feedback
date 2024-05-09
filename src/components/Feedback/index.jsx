@@ -43,14 +43,15 @@ export default class Feedback extends Component {
         <Section title="Please leave feedback">
           <FeedbackOptions options={Options} addVote={this.addVote} />
         </Section>
-        showStatistic ?
-        <Section title="Statistics">
-          <Statistic data={this.getStatisticData()} />
-        </Section>
-        :
-        <div className="statistic">
-          <Notification level="info" message="There is no feedback" />
-        </div>
+        {showStatistic ? (
+          <Section title="Statistics">
+            <Statistic data={this.getStatisticData()} />
+          </Section>
+        ) : (
+          <div className="statistic">
+            <Notification level="info" message="There is no feedback" />
+          </div>
+        )}
       </div>
     );
   }
