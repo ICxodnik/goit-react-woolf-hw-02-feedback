@@ -1,20 +1,19 @@
 import css from './index.module.css';
-import React, { Component } from 'react';
+import React from 'react';
 
-export default class FeedbackOptions extends Component {
-  getOptions() {
-    let content = [];
-    for (const vote in this.props.options) {
-      content.push(
-        <button className={css.button} key={vote} onClick={() => this.props.addVote(vote)}>
-          {this.props.options[vote]}
+export default function FeedbackOptions(props) {
+  /*use vote enum to receive name and value*/
+  return (
+    <div className={css.feedbackOptions}>
+      {Object.keys(props.options).map(vote => (
+        <button
+          className={css.button}
+          key={vote}
+          onClick={() => props.addVote(vote)} /*vote value*/
+        >
+          {props.options[vote] /*vote name*/}
         </button>
-      );
-    }
-    return content;
-  }
-
-  render() {
-    return <div className={css.feedbackOptions}>{this.getOptions()}</div>;
-  }
+      ))}
+    </div>
+  );
 }
